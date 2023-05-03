@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ProfileSettingActivity"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mainlinerlayoutcolor">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/marign_10"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                >
+                <Button
+                    android:id="@+id/Profilesetting_btn_editProfile"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:textAlignment="viewStart"
+                    android:text="CHỈNH SỬA HỒ SƠ"
+                    />
+                <View
+                    android:id="@+id/id_view_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/marign_10"
+                    android:layout_marginTop="@dimen/marign_2"
+                    android:background="@color/linecolor"
+                    />
+
+                <Button
+                    android:id="@+id/Profilesetting_btn_changePassword"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:textAlignment="viewStart"
+                    android:text="THAY ĐỔI MẬT KHẨU"
+                    />
+                <View
+                    android:id="@+id/id_view_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/marign_10"
+                    android:layout_marginTop="@dimen/marign_2"
+                    android:background="@color/linecolor"
+                    />
+
+                <Button
+                    android:id="@+id/Profilesetting_btn_addressList"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:textAlignment="viewStart"
+                    android:text="SỔ ĐỊA CHỈ"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/margin_20"
+                >
+                <Button
+                    android:id="@+id/Profilesetting_btn_logout"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/marign_10"
+                    android:text="ĐĂNG XUẤT"
+                    android:background="@drawable/profileactivity_button_bg"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroud"
+    android:clipToPadding="false"
+    
+    tools:context=".activity.LoginActivity"
+    tools:ignore="HardcodedText">
+
+    <com.android_app_project.fontsmaterialuiux.cairoTextView
+        android:id="@+id/id_SignIn_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="76dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_in"
+        android:textColor="@color/signupsignintextcolor"
+        android:textSize="@dimen/textsize_28"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <!-- Sign In Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/id_SignIn_TextView"
+        android:layout_gravity="center"
+        android:layout_marginLeft="51dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginRight="51dp"
+        android:layout_marginBottom="27dp"
+        android:background="@drawable/rect"
+        
+        android:orientation="vertical">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_Email_textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_33"
+            android:layout_marginRight="@dimen/marign_23"
+            android:background="@null"
+            
+            tools:ignore="HardcodedText">
+
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:id="@+id/id_email_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                
+                android:hint="@string/username"
+                android:textColor="@color/primarytext"
+                android:textSize="@dimen/textsize_18"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/id_view_1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_2"
+            android:layout_marginRight="@dimen/marign_23"
+            android:background="@color/linecolor"
+             />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/id_Password_textInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_4"
+            android:layout_marginRight="@dimen/marign_23"
+            android:background="@null"
+            >
+
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:id="@+id/id_password_EditText"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@null"
+                
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:textColor="@color/primarytext"
+                android:textSize="@dimen/textsize_18"
+                tools:ignore="ContentDescription" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:id="@+id/id_view_2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_2"
+            android:layout_marginRight="@dimen/marign_23"
+            android:background="@color/linecolor"
+             />
+
+        <com.android_app_project.fontsmaterialuiux.cairoTextView
+            android:id="@+id/id_forgetPassword_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marign_6"
+            android:layout_marginBottom="@dimen/marign_4"
+            android:text="@string/forgot_password"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize_16"
+            tools:ignore="RtlHardcoded" />
+
+        <com.android_app_project.fontsmaterialuiux.cairoButton
+            android:id="@+id/id_signIn_Button"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_36"
+            android:layout_marginLeft="@dimen/marign_23"
+            android:layout_marginTop="@dimen/marign_16"
+            android:layout_marginRight="@dimen/marign_23"
+            android:background="@drawable/rectsignin"
+            
+            android:text="@string/sign_in"
+            android:textAllCaps="false"
+            android:textColor="@color/thirdtext"
+            android:textStyle="bold" />
+
+        <com.android_app_project.fontsmaterialuiux.cairoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marign_26"
+            
+            android:text="@string/orsigninusing"
+            android:textColor="@color/secondarytext"
+            android:textSize="@dimen/textsize_14" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marign_8"
+            
+            android:padding="@dimen/padding_16">
+
+            <Button
+                android:layout_width="@dimen/width_50"
+                android:layout_height="@dimen/height_50"
+                android:layout_marginLeft="@dimen/marign_22"
+                android:layout_marginTop="@dimen/marign_4"
+                android:layout_marginRight="@dimen/marign_22"
+                android:layout_marginBottom="@dimen/marign_22"
+                android:background="@drawable/ic_facebook_background"
+                
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="@dimen/width_50"
+                android:layout_height="@dimen/height_50"
+                android:layout_marginLeft="@dimen/marign_22"
+                android:layout_marginTop="@dimen/marign_4"
+                android:layout_marginEnd="@dimen/marign_22"
+                android:layout_marginRight="@dimen/marign_22"
+                android:layout_marginBottom="@dimen/marign_22"
+                android:background="@drawable/ic_google_background"
+                
+                tools:ignore="ButtonStyle" />
+
+            <Button
+                android:layout_width="@dimen/width_50"
+                android:layout_height="@dimen/height_50"
+                android:layout_marginLeft="@dimen/marign_22"
+                android:layout_marginTop="@dimen/marign_4"
+                android:layout_marginEnd="@dimen/marign_22"
+                android:layout_marginRight="@dimen/marign_22"
+                android:layout_marginBottom="@dimen/marign_22"
+                android:background="@drawable/ic_twitter_background"
+                
+                tools:ignore="ButtonStyle" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

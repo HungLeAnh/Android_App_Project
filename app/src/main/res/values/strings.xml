@@ -1,3 +1,57 @@
 <resources>
     <string name="app_name">Android_App_Project</string>
+    <string name="title_activity_bottom_nav">BottomNavActivity</string>
+    <string name="title_home">Trang chủ</string>
+    <string name="title_dashboard">Danh mục</string>
+    <string name="title_notifications">Thông báo</string>
+    <string name="title_favorite">Yêu thích</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="set_password">Set Password</string>
+    <string name="first_name">Tên</string>
+    <string name="last_name">Họ và tên đệm</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Đăng Nhập</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Đăng Ký</string>
+    <string name="sign_up_verify_email">Xác thực đăng ký</string>
+    <string name="otp">OTP</string>
+    <string name="verify">Xác thực</string>
+    <string name="enteryourname">Enter your Name</string>
+    <string name="validemail">Enter a valid email address</string>
+    <string name="validpassword">Between 6 and 12 alphanumeric characters</string>
+    <string name="privacypolicy">Privacy policy</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+
+    <string name="title_activity_sign_up">SignUp</string>
+    <string name="OK">OK</string>
+    <string name="orsigninusing">Hoặc đăng nhập bằng</string>
+    <string name="orsignupusing">Hoặc đăng ký bằng</string>
+
+    <string name="validusername">Enter Username</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="Signin">Đăng Nhập</string>
+    <string name="Signup">Tham gia cùng chúng tôi</string>
+    <string name="title_setting">CÀI ĐẶT</string>
+    <string name="title_more">KHÁC</string>
+    <string name="Signup_policy_1">HỘI VIÊN NHẬN THƯỞNG</string>
+    <string name="Signup_policy_2">THAM GIA ADICLUB</string>
+    <string name="Signup_policy_1_detail">Tham gia chương trình hội viên adiClub để nhận điểm thăng hạng và mở khóa các phần thưởng đặc biệt.</string>
+    <string name="Signup_policy_2_detail">Sau khi tham gia adiClub, luôn có điều đặc biệt dành cho tất cả mọi người - từ quyền truy cập những đôi giày sneaker giới hạn sắp phát hành đến thư mời tham gia sự kiện đặc biệt và hơn thế nữa. Tham gia miễn phí và nhận ngay tất cả phần thưởng Hạng 1. Để mở khóa các thứ hạng và phần thưởng mới, hãy kiếm điểm bằng cách mua hàng, đánh giá sản phẩm, chia sẻ ảnh, chạy bộ,v.v.
+    Đã là hội viên? Đăng nhập để kiểm tra trạng thái và nhận điểm</string>
+    <string name="account">Tài khoản</string>
+    <string name="myorder">Đơn Hàng</string>
+
+
 </resources>
