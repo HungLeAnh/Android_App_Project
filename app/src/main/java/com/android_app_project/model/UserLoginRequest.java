@@ -1,6 +1,8 @@
 package com.android_app_project.model;
 
-public class UserLoginRequest {
+import java.io.Serializable;
+
+public class UserLoginRequest implements Serializable {
     private String username;
     private String password;
 

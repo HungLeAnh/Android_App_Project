@@ -1,7 +1,12 @@
 package com.android_app_project.activity;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,12 +22,16 @@ import com.android_app_project.model.SignupRequest;
 import com.android_app_project.model.SignupResponse;
 import com.android_app_project.model.UserLoginResponse;
 
+import java.io.Serializable;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignupActivity extends AppCompatActivity {
+    public static final String TAG = SignupActivity.class.getName();
+
 
     private ActivitySignupBinding binding;
 
@@ -58,14 +67,16 @@ public class SignupActivity extends AppCompatActivity {
 
             Log.d("loggs", "userLogin: " + Constants.URL_REGISTRATION);
             loginApiService = RetrofitClient.getInstance().getRetrofit(Constants.URL_REGISTRATION).create(LoginAPIService.class);
-            loginApiService.signup(signupRequest).enqueue(new Callback<ResponseBody>() {
+            loginApiService.signup(signupRequest).enqueue(new Callback<SignupResponse>() {
                 @Override
-                public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                public void onResponse(Call<SignupResponse> call, Response<SignupResponse> response) {
                     try {
                         if(response.isSuccessful()){
                             Log.i("logg", "raw: " + response.raw());
                             assert response.body() != null;
-                            SignupResponse signupResponse = new SignupResponse(response.body().string());
+                            SignupResponse signupResponse = new SignupResponse(response.body().getMessage(),response.body().getAccount(),response.body().getCustomer());
+                            Log.i("logg",signupResponse.getAccount().getUsername());
+                            Log.i("logg",signupResponse.getCustomer().getEmail());
                             if(signupResponse.getMessage()==null)
                                 return;
                             if(signupResponse.getMessage().isEmpty() ){
@@ -73,7 +84,9 @@ public class SignupActivity extends AppCompatActivity {
                                 return;
                             } else if (signupResponse.getMessage().contains("successfully")) {
                                 Intent intent = new Intent(getApplicationContext(),SignupVerifyEmailActivity.class);
-                                startActivity(intent);
+                                intent.putExtra("account", (Serializable) signupResponse.getAccount());
+                                intent.putExtra("customer", (Serializable) signupResponse.getCustomer());
+                                msignupverifyResultLauncher.launch(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(),signupResponse.getMessage(),Toast.LENGTH_SHORT).show();
                                 return;
@@ -88,15 +101,34 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<ResponseBody> call, Throwable t) {
+                public void onFailure(Call<SignupResponse> call, Throwable t) {
                     Log.d("logg",t.getMessage());
                 }
             });
-
         }
 
     }
+    private ActivityResultLauncher<Intent> msignupverifyResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>(){
 
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    Log.d(TAG,"onActivityResult");
+                    if(result.getResultCode() == Activity.RESULT_OK){
+                        Intent data  = result.getData();
+                        if(data == null){
+                            return;
+                        }
+                        boolean success = data.getBooleanExtra("success",false);
+                        if(success)
+                            finish();
+                        else
+                            Toast.makeText(getApplicationContext(),"Đăng ký thất bại",Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+    );
     private boolean validate(String firstName,String lastName,String username,String password, String email) {
         boolean valid = true;
         Log.d("TAG", "validate: "+email);

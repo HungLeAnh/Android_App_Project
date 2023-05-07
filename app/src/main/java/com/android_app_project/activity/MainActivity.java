@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -37,32 +38,14 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_nav);
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-
-        binding.ivCartIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.onclick));
-                v.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),"cart clicked",Toast.LENGTH_SHORT).show();
-                    }
-                },300);
-            }
-        });
-        binding.ivProfileIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                v.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.onclick));
-                v.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
-                        startActivity(intent);
-                    }
-                },300);
-            }
-        });
+/*        NavOptions options =  new NavOptions.Builder()
+                .setLaunchSingleTop(true)
+                .setEnterAnim(R.anim.enter_from_bottom)
+                .setExitAnim(R.anim.exit_to_top)
+                .setPopEnterAnim(R.anim.enter_from_top)
+                .setPopExitAnim(R.anim.exit_to_bottom)
+                .setPopUpTo(navController.getGraph().getStartDestinationId(), false)
+                .build();*/
     }
 
 }

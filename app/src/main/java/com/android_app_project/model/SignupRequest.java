@@ -1,6 +1,8 @@
 package com.android_app_project.model;
 
-public class SignupRequest {
+import java.io.Serializable;
+
+public class SignupRequest implements Serializable {
     String firstName;
     String lastName;
     String username;

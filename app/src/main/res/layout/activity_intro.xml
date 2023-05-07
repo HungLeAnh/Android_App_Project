@@ -9,12 +9,12 @@
 
     <ImageView
         android:id="@+id/iv_intro_logo"
-        android:layout_width="298dp"
-        android:layout_height="430dp"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_uniqlo" />
+        app:srcCompat="@drawable/adidas_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

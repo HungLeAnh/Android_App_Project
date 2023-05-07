@@ -37,7 +37,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/id_OTP_textInputLayout"
+            android:id="@+id/id_signup_OTP_textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginLeft="@dimen/marign_23"
@@ -48,7 +48,7 @@
             tools:ignore="HardcodedText">
 
             <com.android_app_project.fontsmaterialuiux.cairoEditText
-                android:id="@+id/id_OTP_EditText"
+                android:id="@+id/id_signup_OTP_EditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -69,8 +69,19 @@
             android:background="@color/linecolor"
             />
 
+        <com.android_app_project.fontsmaterialuiux.cairoTextView
+            android:id="@+id/id_signup_resendOTP_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/marign_10"
+            android:text="Gửi lại OTP"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/textsize_14"
+            tools:ignore="RtlHardcoded" />
+
         <com.android_app_project.fontsmaterialuiux.cairoButton
-            android:id="@+id/id_verify_Button"
+            android:id="@+id/id_signup_verify_Button"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_36"
             android:layout_marginLeft="@dimen/marign_23"

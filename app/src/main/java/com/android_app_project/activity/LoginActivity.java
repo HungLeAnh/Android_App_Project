@@ -39,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void userLogin() {
-        final String username = binding.idEmailEditText.getText().toString();
-        final String password = binding.idPasswordEditText.getText().toString();
+        final String username = binding.idEmailEditText.getText().toString().trim();
+        final String password = binding.idPasswordEditText.getText().toString().trim();
         if(TextUtils.isEmpty(username)){
             binding.idEmailEditText.setError("Please enter username");
             binding.idEmailEditText.requestFocus();

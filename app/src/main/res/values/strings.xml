@@ -33,6 +33,8 @@
     <string name="validpassword">Between 6 and 12 alphanumeric characters</string>
     <string name="privacypolicy">Privacy policy</string>
     <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="title_forgot_password">Đặt lại mật khẩu của bạn</string>
+    <string name="send">Gửi</string>
 
     <string name="title_activity_sign_up">SignUp</string>
     <string name="OK">OK</string>

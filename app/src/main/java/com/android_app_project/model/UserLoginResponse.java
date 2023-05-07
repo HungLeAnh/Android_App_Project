@@ -1,6 +1,8 @@
 package com.android_app_project.model;
 
-public class UserLoginResponse {
+import java.io.Serializable;
+
+public class UserLoginResponse implements Serializable {
     private String JWTtoken;
 
     public UserLoginResponse(String JWTtoken) {

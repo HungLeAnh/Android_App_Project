@@ -101,16 +101,17 @@ public class ProfileActivity extends AppCompatActivity {
                 switch (newState) {
                     case BottomSheetBehavior.STATE_HIDDEN:
                         break;
-                    case BottomSheetBehavior.STATE_EXPANDED: {
+                    case BottomSheetBehavior.STATE_EXPANDED:
                         binding.profileactivitySignupPolicy.setVisibility(View.VISIBLE);
-                    }
                     break;
-                    case BottomSheetBehavior.STATE_COLLAPSED: {
+                    case BottomSheetBehavior.STATE_COLLAPSED:
                         binding.profileactivitySignupPolicy.setVisibility(View.GONE);
-                    }
-                    break;
+                        break;
                     case BottomSheetBehavior.STATE_DRAGGING:
-                        binding.profileactivitySignupPolicy.setVisibility(View.INVISIBLE);
+                        if(bottomSheet.getHeight()<binding.profileactivitySignupPolicy.getHeight())
+                            binding.profileactivitySignupPolicy.setVisibility(View.INVISIBLE);
+                        else
+                            binding.profileactivitySignupPolicy.setVisibility(View.VISIBLE);
                         break;
                     case BottomSheetBehavior.STATE_SETTLING:
                         break;
@@ -157,6 +158,18 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onResume() {
         binding.viProfileActivityBackgroundVideo.resume();
         super.onResume();
+    }
+
+    @Override
+    protected void onPostResume() {
+        binding.viProfileActivityBackgroundVideo.resume();
+        super.onPostResume();
+    }
+
+    @Override
+    protected void onStop() {
+        binding.viProfileActivityBackgroundVideo.pause();
+        super.onStop();
     }
 
     @Override

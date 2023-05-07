@@ -1,6 +1,8 @@
 package com.android_app_project.model;
 
-public class VerifyEmailResponse {
+import java.io.Serializable;
+
+public class VerifyEmailResponse implements Serializable {
     String message;
 
     public VerifyEmailResponse(String message) {

@@ -16,10 +16,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.SignupVerifyEmailActivity"
             android:exported="false"
-            android:parentActivityName=".activity.SignupActivity"
-            android:theme="@style/AppTheme_with_actionbar"/>
+            android:parentActivityName=".activity.SignupActivity" />
         <activity
             android:name=".activity.ForgetPasswordActivity"
             android:exported="false" />
