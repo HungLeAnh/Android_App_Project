@@ -86,6 +86,7 @@
                     android:textAlignment="viewStart"
                     android:drawablePadding="@dimen/marign_10"
                     android:text="Phiếu Giảm Giá"
+                    android:textColor="@color/black"
                     android:drawableLeft="@drawable/ic_ticket_24dp"
                     android:drawableTint="@color/black"/>
 
@@ -118,6 +119,7 @@
                     android:textAlignment="viewStart"
                     android:drawablePadding="@dimen/marign_10"
                     android:text="LỊCH SỬ MUA HÀNG"
+                    android:textColor="@color/black"
                     android:drawableLeft="@drawable/ic_shopping_bag_24dp"
                     android:drawableTint="@color/black"/>
                 <View
@@ -137,6 +139,7 @@
                     android:textAlignment="viewStart"
                     android:drawablePadding="@dimen/marign_10"
                     android:text="LỊCH SỬ ĐƠN HÀNG"
+                    android:textColor="@color/black"
                     android:drawableLeft="@drawable/ic_box_24dp"
                     android:drawableTint="@color/black"/>
 
@@ -168,6 +171,7 @@
                     android:textAlignment="viewStart"
                     android:drawablePadding="@dimen/marign_10"
                     android:text="CÀI ĐẶT HỒ SƠ"
+                    android:textColor="@color/black"
                     android:drawableLeft="@drawable/ic_user_24dp"
                     android:drawableTint="@color/black"/>
                 <View
@@ -187,6 +191,7 @@
                     android:backgroundTint="@color/white"
                     android:drawableLeft="@drawable/ic_settings_24dp"
                     android:text="CÀI ĐẶT ỨNG DỤNG"
+                    android:textColor="@color/black"
                     android:textAlignment="viewStart"
                     android:drawablePadding="@dimen/marign_10"
                     android:drawableTint="@color/black"
@@ -218,6 +223,7 @@
                     android:backgroundTint="@color/white"
                     android:textAlignment="viewStart"
                     android:text="BẮT ĐẦU"
+                    android:textColor="@color/black"
                     />
                 <View
                     android:id="@+id/id_view_4"
@@ -236,6 +242,7 @@
                     android:backgroundTint="@color/white"
                     android:textAlignment="viewStart"
                     android:text="CÂU HỎI THƯỜNG GẶP"
+                    android:textColor="@color/black"
                     />
                 <View
                     android:id="@+id/id_view_6"
@@ -254,6 +261,7 @@
                     android:backgroundTint="@color/white"
                     android:textAlignment="viewStart"
                     android:text="ĐIỀU KHOẢN SỬ DỤNG"
+                    android:textColor="@color/black"
                     />
                 <View
                     android:id="@+id/id_view_7"
@@ -272,6 +280,7 @@
                     android:backgroundTint="@color/white"
                     android:textAlignment="viewStart"
                     android:text="CHÍNH SÁCH BẢO MẬT"
+                    android:textColor="@color/black"
                     />
                 <View
                     android:id="@+id/id_view_8"
@@ -290,6 +299,7 @@
                     android:backgroundTint="@color/white"
                     android:textAlignment="viewStart"
                     android:text="PHIÊN BẢN"
+                    android:textColor="@color/black"
                     />
                 <View
                     android:id="@+id/id_view_9"
@@ -308,6 +318,7 @@
                     android:backgroundTint="@color/white"
                     android:textAlignment="viewStart"
                     android:text="GIẤY PHÉP OSS"
+                    android:textColor="@color/black"
                     />
                 <View
                     android:id="@+id/id_view_10"

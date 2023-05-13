@@ -7,28 +7,28 @@
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/top_bar"
+        android:id="@+id/fragmenthome_top_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/top_nav_bg">
+        >
 
         <ImageView
-            android:id="@+id/iv_cart_icon"
+            android:id="@+id/fragmenthome_iv_cart_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_weight="2"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/iv_profile_icon"
+            app:layout_constraintEnd_toStartOf="@+id/fragmenthome_iv_profile_icon"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_shopping_cart_24" />
 
         <ImageView
-            android:id="@+id/iv_profile_icon"
+            android:id="@+id/fragmenthome_iv_profile_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -39,15 +39,28 @@
             app:srcCompat="@drawable/ic_user_24dp" />
 
         <SearchView
+            android:id="@+id/fragmenthome_searchbar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
-            android:layout_marginStart="@dimen/marign_4"
+            android:layout_marginStart="@dimen/marign_10"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/search_view_bg"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/iv_cart_icon"
+            app:layout_constraintEnd_toStartOf="@+id/fragmenthome_iv_cart_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:submitBackground="@null"
+            android:defaultFocusHighlightEnabled="true"
 
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragmenthome_rv_productrv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/fragmenthome_top_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,10 +28,13 @@ public class Customer implements Serializable {
 
     private Date updateAt;
 
+    Account account;
+
     public Customer() {
     }
 
-    public Customer(long customerId, String avatar, Date createAt, String eWallet, String email, String firstName, byte isDeleted, String lastName, String phone, Date updateAt) {
+    public Customer(long customerId, String avatar, Date createAt, String eWallet, String email,
+                    String firstName, byte isDeleted, String lastName, String phone, Date updateAt,Account account) {
         this.customerId = customerId;
         this.avatar = avatar;
         this.createAt = createAt;
@@ -42,6 +45,7 @@ public class Customer implements Serializable {
         this.lastName = lastName;
         this.phone = phone;
         this.updateAt = updateAt;
+        this.account = account;
     }
 
     public long getCustomerId() {
@@ -124,4 +128,11 @@ public class Customer implements Serializable {
         this.updateAt = updateAt;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 }

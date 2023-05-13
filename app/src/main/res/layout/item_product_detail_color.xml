@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/recycler_view_selected_color"
+    android:padding="5dp"
+    >
+    <ImageView
+        android:id="@+id/item_product_detail_color_iv_color"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@color/black"
+        />
+
+</RelativeLayout>

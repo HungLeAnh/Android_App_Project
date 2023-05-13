@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.EditProfileActivity"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal|center_vertical"
+       android:layout_marginTop="@dimen/margin_20"
+        android:paddingTop="@dimen/marign_10"
+        android:paddingBottom="@dimen/marign_10"
+        android:background="@drawable/profileactivity_button_bg"
+        android:gravity="center"
+        >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/profile_image_outer_circle"
+            android:layout_height="@dimen/profile_image_outer_circle"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="250dp"
+            android:layout_gravity="center">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/profile_image_inner_circle"
+                android:layout_height="@dimen/profile_image_inner_circle"
+                android:layout_gravity="center"
+                app:cardCornerRadius="250dp">
+
+                <ImageView
+                    android:id="@+id/LoggedInProfile_profileImage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/male" />
+
+            </androidx.cardview.widget.CardView>
+        </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit_24dp"
+            android:layout_gravity="bottom|center_vertical"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/marign_16"
+            android:layout_marginTop="@dimen/margin_20"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/profileactivity_button_bg"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email : "
+                android:textSize="@dimen/textsize_20"
+                android:textStyle="bold"
+                />
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_20"
+                android:maxLines="1"
+                android:text=""
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/marign_16"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/profileactivity_button_bg"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="First Name : "
+                android:textSize="@dimen/textsize_20"
+                android:textStyle="bold"
+                />
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_20"
+                android:maxLines="1"
+                android:text=""
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/marign_16"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/profileactivity_button_bg"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name : "
+                android:textSize="@dimen/textsize_20"
+                android:textStyle="bold"
+                />
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_20"
+                android:maxLines="1"
+                android:text=""
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/marign_16"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/profileactivity_button_bg"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone : "
+                android:textSize="@dimen/textsize_20"
+                android:textStyle="bold"
+                />
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_20"
+                android:maxLines="1"
+                android:text=""
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/marign_16"
+            android:layout_marginTop="@dimen/marign_10"
+            android:layout_marginBottom="@dimen/marign_10"
+            android:background="@drawable/profileactivity_button_bg"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-Wallet : "
+                android:textSize="@dimen/textsize_20"
+                android:textStyle="bold"
+                />
+            <com.android_app_project.fontsmaterialuiux.cairoEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textsize_20"
+                android:maxLines="1"
+                android:text=""
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

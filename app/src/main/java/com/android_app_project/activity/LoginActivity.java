@@ -62,6 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                         Log.i("logg", "res: " + response.raw());
                         assert response != null;
                         UserLoginResponse user = new UserLoginResponse(response.body().string());
+                        Log.i("loggi","jwt: "+user.getJWTtoken());
                         SharePrefManager.getInstance(getApplicationContext()).userLogin(user);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);

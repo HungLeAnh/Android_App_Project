@@ -1,33 +1,49 @@
 package com.android_app_project.entities;
 
-import java.math.BigDecimal;
-import java.sql.Date;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
-public class Product {
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.List;
+
+import retrofit2.http.OPTIONS;
+
+public class Product implements Serializable {
     private long productId;
+
     private String brand;
+
     private Date createAt;
+
     private String description;
+
     private String image;
+
     private byte isActive;
+
     private byte isDeleted;
+
     private BigDecimal price;
+
     private String productName;
+
     private BigDecimal rating;
+
     private int sold;
+
     private Date updateAt;
 
-    public Product(String image, BigDecimal price, String productName) {
-        this.image = image;
-        this.price = price;
-        this.productName = productName;
-    }
-
+    private List<Color> colors;
+    private Category category;
+    private List<Size> sizes;
     public Product() {
     }
 
-    public Product(long productId, String brand, Date createAt, String description, String image, byte isActive, byte isDeleted,
-                   BigDecimal price, String productName, BigDecimal rating, int sold, Date updateAt) {
+    public Product(long productId, String brand, Date createAt, String description, String image,
+                   byte isActive, byte isDeleted, BigDecimal price, String productName, BigDecimal rating,
+                   int sold, Date updateAt, List<Color> colors, Category category, List<Size> sizes) {
         this.productId = productId;
         this.brand = brand;
         this.createAt = createAt;
@@ -40,6 +56,9 @@ public class Product {
         this.rating = rating;
         this.sold = sold;
         this.updateAt = updateAt;
+        this.colors = colors;
+        this.category = category;
+        this.sizes = sizes;
     }
 
     public long getProductId() {
@@ -136,5 +155,29 @@ public class Product {
 
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
+    }
+
+    public List<Color> getColors() {
+        return colors;
+    }
+
+    public void setColors(List<Color> colors) {
+        this.colors = colors;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public List<Size> getSizes() {
+        return sizes;
+    }
+
+    public void setSizes(List<Size> sizes) {
+        this.sizes = sizes;
     }
 }

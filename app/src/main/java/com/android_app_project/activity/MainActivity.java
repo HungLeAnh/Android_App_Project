@@ -2,12 +2,17 @@ package com.android_app_project.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.android_app_project.R;
+import com.android_app_project.Utils.Constants;
+import com.android_app_project.api.CategoryAPI;
+import com.android_app_project.api.RetrofitClient;
 import com.android_app_project.databinding.ActivityMainBinding;
+import com.android_app_project.entities.Category;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +23,19 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.transition.TransitionManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    CategoryAPI categoryAPI;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                 .setPopExitAnim(R.anim.exit_to_bottom)
                 .setPopUpTo(navController.getGraph().getStartDestinationId(), false)
                 .build();*/
+
+
     }
 
 }

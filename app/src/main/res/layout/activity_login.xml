@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
-                
+
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:textColor="@color/primarytext"
@@ -126,7 +126,7 @@
             android:layout_marginTop="@dimen/marign_16"
             android:layout_marginRight="@dimen/marign_23"
             android:background="@drawable/rectsignin"
-            
+
             android:text="@string/sign_in"
             android:textAllCaps="false"
             android:textColor="@color/thirdtext"
@@ -151,7 +151,7 @@
             
             android:padding="@dimen/padding_16">
 
-            <Button
+            <ImageButton
                 android:layout_width="@dimen/width_50"
                 android:layout_height="@dimen/height_50"
                 android:layout_marginLeft="@dimen/marign_22"
@@ -162,7 +162,7 @@
                 
                 tools:ignore="ButtonStyle" />
 
-            <Button
+            <ImageButton
                 android:layout_width="@dimen/width_50"
                 android:layout_height="@dimen/height_50"
                 android:layout_marginLeft="@dimen/marign_22"
@@ -174,7 +174,7 @@
                 
                 tools:ignore="ButtonStyle" />
 
-            <Button
+            <ImageButton
                 android:layout_width="@dimen/width_50"
                 android:layout_height="@dimen/height_50"
                 android:layout_marginLeft="@dimen/marign_22"
@@ -183,7 +183,7 @@
                 android:layout_marginRight="@dimen/marign_22"
                 android:layout_marginBottom="@dimen/marign_22"
                 android:background="@drawable/ic_twitter_background"
-                
+
                 tools:ignore="ButtonStyle" />
         </LinearLayout>
     </LinearLayout>

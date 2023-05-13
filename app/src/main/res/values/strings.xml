@@ -54,6 +54,7 @@
     Đã là hội viên? Đăng nhập để kiểm tra trạng thái và nhận điểm</string>
     <string name="account">Tài khoản</string>
     <string name="myorder">Đơn Hàng</string>
+    <string name="search_hint">hint</string>
 
 
 </resources>

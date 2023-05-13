@@ -33,11 +33,9 @@ public class SharePrefManager {
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return sharedPreferences.getString(KEY_JWT,null) !=null;
     }
-    public UserLoginResponse getUser(){
+    public String getJWT(){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return new UserLoginResponse(
-                sharedPreferences.getString(KEY_JWT,null)
-        );
+        return sharedPreferences.getString(KEY_JWT,null);
     }
     public void logout(){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);

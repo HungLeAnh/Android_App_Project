@@ -15,17 +15,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowFullscreen">true</item>
-
     </style>
 
-
-    <style name="MainActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">#FF9800</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowFullscreen">true</item>
-    </style>
     <!--  DialogTheme. -->
     <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!--item RadioButton or CheckBox color-->

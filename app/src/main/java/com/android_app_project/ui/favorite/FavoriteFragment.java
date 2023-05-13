@@ -64,7 +64,7 @@ public class FavoriteFragment extends Fragment {
         View root = binding.getRoot();
         context = getContext();
 
-        GetCategory();
+        GetFavorite();
         //new ItemTouchHelper(simpleCallback).attachToRecyclerView(binding.favoriteFragmentRvProductList);
         SimpleSwipeHelper simpleSwipeHelper = new SimpleSwipeHelper(context,binding.favoriteFragmentRvProductList,200) {
             @Override
@@ -137,14 +137,14 @@ public class FavoriteFragment extends Fragment {
     };
 
     @SuppressLint("NotifyDataSetChanged")
-    private void GetCategory() {
+    private void GetFavorite() {
         productList = new ArrayList<>();
-        productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10034400.0323)),"asdtythf"));
+       /* productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10034400.0323)),"asdtythf"));
         productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(13430000.0323)),"asdhbvxzf"));
         productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10034200.0323)),"asdeghjgjf"));
         productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10430100.0323)),"asdbghehf"));
         productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10304300.0323)),"asdntimvcf"));
-        productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10061300.0323)),"asdtwywsgf"));
+        productList.add(new Product("android.resource://"+R.class.getPackage().getName()+"/" +R.drawable.male,new BigDecimal(Double.toString(10061300.0323)),"asdtwywsgf"));*/
         itemFavoriteAdapter = new ItemFavoriteAdapter(productList,context);
         binding.favoriteFragmentRvProductList.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager=new LinearLayoutManager((context),LinearLayoutManager.VERTICAL,false);

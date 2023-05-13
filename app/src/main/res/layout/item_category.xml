@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/marign_5"
+    >
+    <Button
+        android:id="@+id/itemCategory_btn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/white"
+        android:textAlignment="viewStart"
+        android:paddingLeft="45dp"
+        android:text="TEMP"
+        android:textColor="@color/black"
+
+        />
+    <View
+        android:id="@+id/id_view_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="@dimen/margin_45"
+        android:layout_marginTop="@dimen/marign_2"
+        android:background="@color/linecolor"
+        />
+</LinearLayout>
