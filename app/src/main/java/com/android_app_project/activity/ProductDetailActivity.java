@@ -145,12 +145,13 @@ public class ProductDetailActivity extends AppCompatActivity {
                 Log.d(TAG, "onClick: color position"+colorPosition);
                 int sizePosition = itemProductDetailSizeAdapter.getSelectedPosition();
                 Log.d(TAG, "onClick: size position"+sizePosition);
-                Long colorId = colors.get(itemProductDetailColorAdapter.getSelectedPosition()).getColorId();
-                Long sizeId = sizes.get(itemProductDetailSizeAdapter.getSelectedPosition()).getSizeId();
+                if(amount<=0||colorPosition<0||sizePosition<0)
+                    return;
+                Long colorId = colors.get(colorPosition).getColorId();
+                Long sizeId = sizes.get(sizePosition).getSizeId();
                 Long amount = Long.valueOf(binding.productDetailTvProductAmount.getText().toString());
                 String request = "Bearer "+ SharePrefManager.getInstance(getApplicationContext()).getJWT();
-                if(amount<=0)
-                    return;
+
                 cartItemAPI = RetrofitClient.getInstance().getRetrofit(Constants.URL_CARTITEM).create(CartItemAPI.class);
                 cartItemAPI.addToCart(request,product.getProductId(),colorId,sizeId,amount).enqueue(new Callback<ResponseBody>() {
                     @Override

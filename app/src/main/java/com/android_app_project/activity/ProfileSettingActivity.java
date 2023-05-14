@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.android_app_project.R;
 import com.android_app_project.Utils.SharePrefManager;
@@ -34,6 +35,12 @@ public class ProfileSettingActivity extends AppCompatActivity {
             Intent newintent = new Intent(getApplicationContext(),EditProfileActivity.class);
             newintent.putExtra("customer",(Serializable) customer);
             startActivity(newintent);
+        });
+        binding.ProfilesettingBtnChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
         });
     }
 }

@@ -1,6 +1,7 @@
 package com.android_app_project.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.RectF;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +10,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android_app_project.activity.SearchActivity;
 import com.android_app_project.databinding.ItemCategoryBinding;
 import com.android_app_project.databinding.ItemFavoriteBinding;
 import com.android_app_project.entities.Category;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder> {
@@ -40,7 +43,9 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.binding.itemCategoryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(context, SearchActivity.class);
+                intent.putExtra("category",(Serializable) category);
+                context.startActivity(intent);
             }
         });
     }

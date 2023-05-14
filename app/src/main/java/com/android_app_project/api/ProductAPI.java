@@ -11,6 +11,7 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ProductAPI {
     @GET("get")
@@ -20,4 +21,7 @@ public interface ProductAPI {
 
     @GET("search")
     Call<List<Product>> search(@Part("name") String name);
+
+    @GET("get-by-category")
+    Call<List<Product>> searchbycategory(@Query("categoryId") Long categoryId);
 }

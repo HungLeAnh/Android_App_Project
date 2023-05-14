@@ -112,6 +112,7 @@ public class ItemProductAdapter extends RecyclerView.Adapter<ItemProductAdapter.
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, bStream);
                     byte[] byteArray = bStream.toByteArray();
                     intent.putExtra ("product_image", byteArray);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 
                 }

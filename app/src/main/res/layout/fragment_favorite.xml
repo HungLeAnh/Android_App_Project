@@ -27,10 +27,10 @@
             android:id="@+id/favorite_fragment_tv_favoriteCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100 mặt hàng"
+            android:text="0 mặt hàng"
             android:textAllCaps="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginStart="@dimen/marign_10"
+            android:layout_marginStart="@dimen/margin_20"
             android:layout_centerVertical="true"
             />
 

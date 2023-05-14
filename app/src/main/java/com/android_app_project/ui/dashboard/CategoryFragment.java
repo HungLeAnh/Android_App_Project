@@ -66,7 +66,6 @@ public class CategoryFragment extends Fragment {
         context = getContext();
 
         GetCategory();
-
         return root;
     }
 
