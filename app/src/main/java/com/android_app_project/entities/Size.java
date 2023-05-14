@@ -7,16 +7,16 @@ public class Size implements Serializable {
 
     private long sizeId;
 
-    private Date createAt;
+    private String createAt;
 
-    private Date updateAt;
+    private String updateAt;
 
     private String value;
 
     public Size() {
     }
 
-    public Size(long sizeId, Date createAt, Date updateAt, String value) {
+    public Size(long sizeId, String createAt, String updateAt, String value) {
         this.sizeId = sizeId;
         this.createAt = createAt;
         this.updateAt = updateAt;
@@ -31,19 +31,19 @@ public class Size implements Serializable {
         this.sizeId = sizeId;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

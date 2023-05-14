@@ -1,14 +1,19 @@
 package com.android_app_project.entities;
 
 
+import android.text.format.DateFormat;
+
+import com.android_app_project.Utils.Constants;
+
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.Date;
 
 public class Account implements Serializable {
 
     private long accountId;
 
-    private Date createAt;
+    private String createAt;
 
     private String hashCode;
 
@@ -20,15 +25,15 @@ public class Account implements Serializable {
 
     private String salt;
 
-    private Date updateAt;
+    private String updateAt;
 
     private String username;
 
     private String oneTimePassword;
 
-    private Date otpRequestedTime;
+    private String otpRequestedTime;
 
-    public Account(long accountId, Date createAt, String hashCode, byte isActive, byte isDeleted, String role, String salt, Date updateAt, String username, String oneTimePassword, Date otpRequestedTime) {
+    public Account(long accountId, String createAt, String hashCode, byte isActive, byte isDeleted, String role, String salt, String updateAt, String username, String oneTimePassword, String otpRequestedTime) throws ParseException {
         this.accountId = accountId;
         this.createAt = createAt;
         this.hashCode = hashCode;
@@ -37,6 +42,7 @@ public class Account implements Serializable {
         this.role = role;
         this.salt = salt;
         this.updateAt = updateAt;
+
         this.username = username;
         this.oneTimePassword = oneTimePassword;
         this.otpRequestedTime = otpRequestedTime;
@@ -53,11 +59,11 @@ public class Account implements Serializable {
         this.accountId = accountId;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
@@ -101,11 +107,11 @@ public class Account implements Serializable {
         this.salt = salt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 
@@ -125,11 +131,11 @@ public class Account implements Serializable {
         this.oneTimePassword = oneTimePassword;
     }
 
-    public Date getOtpRequestedTime() {
+    public String getOtpRequestedTime() {
         return otpRequestedTime;
     }
 
-    public void setOtpRequestedTime(Date otpRequestedTime) {
+    public void setOtpRequestedTime(String otpRequestedTime) {
         this.otpRequestedTime = otpRequestedTime;
     }
 }

@@ -7,14 +7,14 @@ import java.util.List;
 public class Color implements Serializable {
 
      long colorId;
-     Date createAt;
-     Date updateAt;
+     String createAt;
+     String updateAt;
      String value;
 
     public Color() {
     }
 
-    public Color(long colorId, Date createAt, Date updateAt, String value) {
+    public Color(long colorId, String createAt, String updateAt, String value) {
         this.colorId = colorId;
         this.createAt = createAt;
         this.updateAt = updateAt;
@@ -29,19 +29,19 @@ public class Color implements Serializable {
         this.colorId = colorId;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

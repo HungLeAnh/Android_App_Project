@@ -12,7 +12,7 @@ public class Customer implements Serializable {
 
     private String avatar;
 
-    private Date createAt;
+    private String createAt;
 
     private String eWallet;
 
@@ -26,15 +26,15 @@ public class Customer implements Serializable {
 
     private String phone;
 
-    private Date updateAt;
+    private String updateAt;
 
     Account account;
 
     public Customer() {
     }
 
-    public Customer(long customerId, String avatar, Date createAt, String eWallet, String email,
-                    String firstName, byte isDeleted, String lastName, String phone, Date updateAt,Account account) {
+    public Customer(long customerId, String avatar, String createAt, String eWallet, String email,
+                    String firstName, byte isDeleted, String lastName, String phone, String updateAt,Account account) {
         this.customerId = customerId;
         this.avatar = avatar;
         this.createAt = createAt;
@@ -64,11 +64,11 @@ public class Customer implements Serializable {
         this.avatar = avatar;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
@@ -120,11 +120,11 @@ public class Customer implements Serializable {
         this.phone = phone;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

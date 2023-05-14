@@ -7,19 +7,19 @@ import java.util.Date;
 public class Order implements Serializable {
     private long orderId;
     private String address;
-    private Date createAt;
+    private String createAt;
     private String description;
     private byte isPaidBefore;
     private String notification;
     private String status;
     private BigDecimal totalPrice;
-    private Date updateAt;
+    private String updateAt;
     private Customer customer;
 
     public Order() {
     }
 
-    public Order(long orderId, String address, Date createAt, String description, byte isPaidBefore, String notification, String status, BigDecimal totalPrice, Date updateAt, Customer customer) {
+    public Order(long orderId, String address, String createAt, String description, byte isPaidBefore, String notification, String status, BigDecimal totalPrice, String updateAt, Customer customer) {
         this.orderId = orderId;
         this.address = address;
         this.createAt = createAt;
@@ -48,11 +48,11 @@ public class Order implements Serializable {
         this.address = address;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
@@ -96,11 +96,11 @@ public class Order implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

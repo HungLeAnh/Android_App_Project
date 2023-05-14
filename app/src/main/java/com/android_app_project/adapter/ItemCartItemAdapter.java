@@ -18,10 +18,13 @@ import androidx.slidingpanelayout.widget.SlidingPaneLayout;
 import com.android_app_project.Helper.IClickItemListener;
 import com.android_app_project.R;
 import com.android_app_project.Utils.Constants;
+import com.android_app_project.api.CartItemAPI;
+import com.android_app_project.api.ItemStockAPI;
 import com.android_app_project.api.ProductAPI;
 import com.android_app_project.api.RetrofitClient;
 import com.android_app_project.databinding.ItemCartItemBinding;
 import com.android_app_project.entities.CartItem;
+import com.android_app_project.entities.ItemStock;
 
 import java.util.List;
 
@@ -32,6 +35,7 @@ import retrofit2.Response;
 
 public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapter.ItemCartItemHolder> {
 
+    private static final String TAG = ItemCartItemAdapter.class.getName();
     List<CartItem> cartItemList;
 
     Context context;
@@ -39,6 +43,8 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
     IClickItemListener iClickItemListener;
 
     ProductAPI productAPI;
+    ItemStockAPI itemStockAPI;
+    CartItemAPI cartItemAPI;
 
     public ItemCartItemAdapter(List<CartItem> cartItemList, IClickItemListener iClickItemListener, Context context) {
         this.cartItemList = cartItemList;
@@ -56,6 +62,7 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
     @Override
     public void onBindViewHolder(@NonNull ItemCartItemAdapter.ItemCartItemHolder holder, int position) {
         CartItem cartItem = cartItemList.get(position);
+        holder.setCartItem(cartItem);
         holder.binding.itemCartItemTvProductName.setText(cartItem.getProduct().getProductName());
         holder.binding.itemCartItemTvProductPrice.setText(cartItem.getProduct().getPrice().toString()+" VND");
         if(cartItem.getProduct().getImage()!=null){
@@ -87,9 +94,98 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
         else {
             holder.binding.itemCartItemIvProductImage.setImageResource(R.drawable.ic_image_not_supported_72);
         }
+
         holder.binding.itemCartItemColorIvColor.setImageDrawable(new ColorDrawable(android.graphics.Color.parseColor(cartItem.getColor().getValue())));
         holder.binding.itemCartItemTvProductSize.setText("Kích cỡ: "+cartItem.getSize().getValue());
         holder.binding.itemCartItemTvProductAmount.setText(String.valueOf(cartItem.getCount()));
+
+        itemStockAPI = RetrofitClient.getInstance().getRetrofit(Constants.URL_ITEMSTOCK).create(ItemStockAPI.class);
+        itemStockAPI.getProductStock(cartItem.getProduct().getProductId(),cartItem.getColor().getColorId(),cartItem.getSize().getSizeId()).enqueue(new Callback<ItemStock>() {
+            @Override
+            public void onResponse(Call<ItemStock> call, Response<ItemStock> response) {
+                try{
+                    if(response.isSuccessful()){
+                        ItemStock itemStock = response.body();
+                        holder.setMaxAmount(itemStock.getCount());
+                    }
+                    else{
+                        Log.e(TAG, "onResponse: response error: "+response.errorBody().toString() );
+                    }
+                }
+                catch (Exception e){
+                    Log.e(TAG, "onResponse: "+e.getMessage());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ItemStock> call, Throwable t) {
+                Log.e(TAG, "onFailure: "+t.getMessage());
+            }
+        });
+        holder.binding.itemCartItemBtnPlus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int newAmount = cartItem.getCount()+1;
+                if(newAmount<=holder.getMaxAmount()){
+                    cartItem.setCount(newAmount);
+                    holder.binding.itemCartItemTvProductAmount.setText(String.valueOf(cartItem.getCount()));
+                    cartItemAPI = RetrofitClient.getInstance().getRetrofit(Constants.URL_CARTITEM).create(CartItemAPI.class);
+                    cartItemAPI.update(cartItem).enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            try {
+                                if(response.isSuccessful()){
+                                    iClickItemListener.onClickItem();
+                                }
+                                else{
+                                    Log.e(TAG, "onResponse: "+response.errorBody().toString());
+                                }
+                            }
+                            catch (Exception e ){
+                                Log.e(TAG, "onResponse: "+e.getMessage());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Log.e(TAG, "onFailure: "+t.getMessage());
+                        }
+                    });
+                }
+            }
+        });
+        holder.binding.itemCartItemBtnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int newAmount = cartItem.getCount()-1;
+                if(newAmount>0){
+                    cartItem.setCount(newAmount);
+                    holder.binding.itemCartItemTvProductAmount.setText(String.valueOf(cartItem.getCount()));
+                    cartItemAPI = RetrofitClient.getInstance().getRetrofit(Constants.URL_CARTITEM).create(CartItemAPI.class);
+                    cartItemAPI.update(cartItem).enqueue(new Callback<ResponseBody>() {
+                        @Override
+                        public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            try {
+                                if(response.isSuccessful()){
+                                    iClickItemListener.onClickItem();
+                                }
+                                else{
+                                    Log.e(TAG, "onResponse: "+response.errorBody().toString());
+                                }
+                            }
+                            catch (Exception e ){
+                                Log.e(TAG, "onResponse: "+e.getMessage());
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            Log.e(TAG, "onFailure: "+t.getMessage());
+                        }
+                    });
+                }
+            }
+        });
     }
 
     @Override
@@ -100,10 +196,29 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
     public class ItemCartItemHolder extends RecyclerView.ViewHolder {
 
         private ItemCartItemBinding binding;
+        private CartItem cartItem;
+
+        private int maxAmount =0;
 
         public ItemCartItemHolder(ItemCartItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+        }
+
+        public CartItem getCartItem() {
+            return cartItem;
+        }
+
+        public void setCartItem(CartItem cartItem) {
+            this.cartItem = cartItem;
+        }
+
+        public int getMaxAmount() {
+            return maxAmount;
+        }
+
+        public void setMaxAmount(int maxAmount) {
+            this.maxAmount = maxAmount;
         }
     }
 }

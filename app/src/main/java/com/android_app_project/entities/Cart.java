@@ -1,5 +1,7 @@
 package com.android_app_project.entities;
 
+import android.text.format.DateFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,18 +11,18 @@ public class Cart implements Serializable {
 
     private int countUniqueItems;
 
-    private Date createAt;
+    private String createAt;
 
     private byte isDeleted;
 
-    private Date updateAt;
+    private String updateAt;
 
     private Customer customer;
 
     public Cart() {
     }
 
-    public Cart(long cartId, int countUniqueItems, Date createAt, byte isDeleted, Date updateAt, Customer customer) {
+    public Cart(long cartId, int countUniqueItems, String createAt, byte isDeleted, String updateAt, Customer customer) {
         this.cartId = cartId;
         this.countUniqueItems = countUniqueItems;
         this.createAt = createAt;
@@ -45,11 +47,11 @@ public class Cart implements Serializable {
         this.countUniqueItems = countUniqueItems;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
@@ -61,11 +63,11 @@ public class Cart implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

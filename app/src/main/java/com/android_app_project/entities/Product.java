@@ -15,7 +15,7 @@ public class Product implements Serializable {
 
     private String brand;
 
-    private Date createAt;
+    private String createAt;
 
     private String description;
 
@@ -33,7 +33,7 @@ public class Product implements Serializable {
 
     private int sold;
 
-    private Date updateAt;
+    private String updateAt;
 
     private List<Color> colors;
     private Category category;
@@ -41,9 +41,9 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(long productId, String brand, Date createAt, String description, String image,
+    public Product(long productId, String brand, String createAt, String description, String image,
                    byte isActive, byte isDeleted, BigDecimal price, String productName, BigDecimal rating,
-                   int sold, Date updateAt, List<Color> colors, Category category, List<Size> sizes) {
+                   int sold, String updateAt, List<Color> colors, Category category, List<Size> sizes) {
         this.productId = productId;
         this.brand = brand;
         this.createAt = createAt;
@@ -77,11 +77,11 @@ public class Product implements Serializable {
         this.brand = brand;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
@@ -149,11 +149,11 @@ public class Product implements Serializable {
         this.sold = sold;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

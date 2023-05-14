@@ -9,9 +9,9 @@ public class ItemStock implements Serializable {
 
     private int count;
 
-    private Date createAt;
+    private String createAt;
 
-    private Date updateAt;
+    private String updateAt;
 
     private Color color;
 
@@ -22,7 +22,7 @@ public class ItemStock implements Serializable {
     public ItemStock() {
     }
 
-    public ItemStock(long itemStockId, int count, Date createAt, Date updateAt, Color color, Product product, Size size) {
+    public ItemStock(long itemStockId, int count, String createAt, String updateAt, Color color, Product product, Size size) {
         this.itemStockId = itemStockId;
         this.count = count;
         this.createAt = createAt;
@@ -48,19 +48,19 @@ public class ItemStock implements Serializable {
         this.count = count;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

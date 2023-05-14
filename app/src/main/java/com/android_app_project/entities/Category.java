@@ -6,16 +6,16 @@ import java.util.Date;
 public class Category implements Serializable {
      long categoryId;
      String categoryName;
-     Date createAt;
+     String createAt;
      String description;
      byte isDeleted;
-     Date updateAt;
+     String updateAt;
      Category category;
 
     public Category() {
     }
 
-    public Category(long categoryId, String categoryName, Date createAt, String description, byte isDeleted, Date updateAt, Category category) {
+    public Category(long categoryId, String categoryName, String createAt, String description, byte isDeleted, String updateAt, Category category) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.createAt = createAt;
@@ -41,11 +41,11 @@ public class Category implements Serializable {
         this.categoryName = categoryName;
     }
 
-    public Date getCreateAt() {
+    public String getCreateAt() {
         return createAt;
     }
 
-    public void setCreateAt(Date createAt) {
+    public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
 
@@ -65,11 +65,11 @@ public class Category implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    public Date getUpdateAt() {
+    public String getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(String updateAt) {
         this.updateAt = updateAt;
     }
 

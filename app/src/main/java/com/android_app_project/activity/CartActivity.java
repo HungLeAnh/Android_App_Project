@@ -82,7 +82,7 @@ public class CartActivity extends AppCompatActivity {
                         itemCartItemAdapter = new ItemCartItemAdapter(cartItemList, new IClickItemListener() {
                             @Override
                             public void onClickItem() {
-
+                                CalculateTotalPrice();
                             }
                         }, context);
                         binding.cartactivityRvCartItem.setHasFixedSize(true);
