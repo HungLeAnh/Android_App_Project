@@ -2,30 +2,19 @@ package com.android_app_project.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android_app_project.Helper.IClickItemListener;
-import com.android_app_project.Utils.Constants;
-import com.android_app_project.api.ItemStockAPI;
-import com.android_app_project.api.RetrofitClient;
+import com.android_app_project.inteface.IClickItemListener;
 import com.android_app_project.databinding.ItemProductDetailColorBinding;
-import com.android_app_project.databinding.ItemProductDetailSizeBinding;
 import com.android_app_project.entities.Color;
-import com.android_app_project.entities.ItemStock;
 
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ItemProductDetailColorAdapter extends RecyclerView.Adapter<ItemProductDetailColorAdapter.ItemProductDetailColorHolder> {
 
@@ -39,7 +28,7 @@ public class ItemProductDetailColorAdapter extends RecyclerView.Adapter<ItemProd
     public int getSelectedPosition() {
         return selectedPosition;
     }
-    public ItemProductDetailColorAdapter(List<Color> colorList,Long productId, IClickItemListener iClickItemListener, Context context) {
+    public ItemProductDetailColorAdapter(List<Color> colorList, Long productId, IClickItemListener iClickItemListener, Context context) {
         this.colorList = colorList;
         this.context = context;
         this.productId = productId;

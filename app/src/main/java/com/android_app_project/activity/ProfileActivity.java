@@ -37,12 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(isLoggedIn){
-            Intent intent = new Intent(getApplicationContext(),LoggedInProfileActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         isLoggedIn = SharePrefManager.getInstance(this).isLoggedIn();
@@ -167,9 +161,21 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        binding.viProfileActivityBackgroundVideo.start();
+        super.onStart();
+    }
+
+    @Override
     protected void onStop() {
         binding.viProfileActivityBackgroundVideo.pause();
         super.onStop();
+    }
+
+    @Override
+    protected void onRestart() {
+        binding.viProfileActivityBackgroundVideo.start();
+        super.onRestart();
     }
 
     @Override

@@ -11,7 +11,7 @@ import com.android_app_project.model.UserLoginResponse;
 public class SharePrefManager {
     private static final  String SHARED_PREF_NAME = "volleyregisterlogin";
     private static final String KEY_JWT = "keyJWT";
-    private static final String KEY_ID = "keyid";
+    private static final String KEY_ROLE = "keyRole";
     private static SharePrefManager mInstance;
     private static Context ctx;
     private SharePrefManager(Context context){
@@ -26,7 +26,8 @@ public class SharePrefManager {
     public void userLogin(UserLoginResponse user){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(KEY_JWT, user.getJWTtoken());
+        editor.putString(KEY_JWT, user.getToken());
+        editor.putString(KEY_ROLE, user.getRole());
         editor.apply();
     }
     public boolean isLoggedIn(){
@@ -43,5 +44,10 @@ public class SharePrefManager {
         editor.clear();
         editor.apply();
         ctx.startActivity(new Intent(ctx, MainActivity.class));
+    }
+
+    public String getRoll() {
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getString(KEY_ROLE,null);
     }
 }

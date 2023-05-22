@@ -8,14 +8,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SimpleAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.slidingpanelayout.widget.SlidingPaneLayout;
 
-import com.android_app_project.Helper.IClickItemListener;
+import com.android_app_project.inteface.IClickItemCartItemListener;
+import com.android_app_project.inteface.IClickItemListener;
 import com.android_app_project.R;
 import com.android_app_project.Utils.Constants;
 import com.android_app_project.api.CartItemAPI;
@@ -40,17 +39,18 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
 
     Context context;
 
-    IClickItemListener iClickItemListener;
+    IClickItemCartItemListener iClickItemListener;
 
     ProductAPI productAPI;
     ItemStockAPI itemStockAPI;
     CartItemAPI cartItemAPI;
 
-    public ItemCartItemAdapter(List<CartItem> cartItemList, IClickItemListener iClickItemListener, Context context) {
+    public ItemCartItemAdapter(List<CartItem> cartItemList, IClickItemCartItemListener iClickItemListener, Context context) {
         this.cartItemList = cartItemList;
         this.context = context;
         this.iClickItemListener = iClickItemListener;
     }
+
 
     @NonNull
     @Override
@@ -135,7 +135,7 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             try {
                                 if(response.isSuccessful()){
-                                    iClickItemListener.onClickItem();
+                                    iClickItemListener.onClickAmountChange();
                                 }
                                 else{
                                     Log.e(TAG, "onResponse: "+response.errorBody().toString());
@@ -167,7 +167,7 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
                         public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                             try {
                                 if(response.isSuccessful()){
-                                    iClickItemListener.onClickItem();
+                                    iClickItemListener.onClickAmountChange();
                                 }
                                 else{
                                     Log.e(TAG, "onResponse: "+response.errorBody().toString());
@@ -184,6 +184,39 @@ public class ItemCartItemAdapter extends RecyclerView.Adapter<ItemCartItemAdapte
                         }
                     });
                 }
+            }
+        });
+        holder.binding.itemCartItemIvDeleteItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cartItemAPI = RetrofitClient.getInstance().getRetrofit(Constants.URL_CARTITEM).create(CartItemAPI.class);
+                cartItemAPI.removeFromCart(cartItem).enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                        try {
+                            if(response.isSuccessful()){
+                                Toast.makeText(context,response.body().string(),Toast.LENGTH_SHORT).show();
+
+                                cartItemList.remove(cartItem);
+                                notifyItemRemoved(cartItemList.indexOf(cartItem));
+                                notifyDataSetChanged();
+                                iClickItemListener.onClickAmountChange();
+
+                            }
+                            else{
+                                Log.e(TAG, "onResponse: "+response.errorBody().toString());
+                            }
+                        }
+                        catch (Exception e ){
+                            Log.e(TAG, "onResponse: "+e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseBody> call, Throwable t) {
+                        Log.e(TAG, "onFailure: "+t.getMessage());
+                    }
+                });
             }
         });
     }

@@ -52,15 +52,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_bottom_nav);
         //NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
-/*        NavOptions options =  new NavOptions.Builder()
-                .setLaunchSingleTop(true)
-                .setEnterAnim(R.anim.enter_from_bottom)
-                .setExitAnim(R.anim.exit_to_top)
-                .setPopEnterAnim(R.anim.enter_from_top)
-                .setPopExitAnim(R.anim.exit_to_bottom)
-                .setPopUpTo(navController.getGraph().getStartDestinationId(), false)
-                .build();*/
-
 
     }
 

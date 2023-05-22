@@ -54,15 +54,16 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("loggs", "userLogin: " + Constants.URL_REGISTRATION);
         UserLoginRequest userLoginRequest = new UserLoginRequest(username,password);
         loginApiService = RetrofitClient.getInstance().getRetrofit(Constants.URL_REGISTRATION).create(LoginAPIService.class);
-        loginApiService.login(userLoginRequest).enqueue(new Callback<ResponseBody>() {
+        loginApiService.login(userLoginRequest).enqueue(new Callback<UserLoginResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(Call<UserLoginResponse> call, Response<UserLoginResponse> response) {
                 try {
                     if(response.isSuccessful()){
                         Log.i("logg", "res: " + response.raw());
                         assert response != null;
-                        UserLoginResponse user = new UserLoginResponse(response.body().string());
-                        Log.i("loggi","jwt: "+user.getJWTtoken());
+                        UserLoginResponse user = response.body();
+                        Log.i("loggi","jwt: "+user.getToken());
+                        Log.i("loggi","roll: "+user.getRole());
                         SharePrefManager.getInstance(getApplicationContext()).userLogin(user);
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
@@ -77,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(Call<UserLoginResponse> call, Throwable t) {
                 Log.d("logg",t.getMessage());
             }
         });

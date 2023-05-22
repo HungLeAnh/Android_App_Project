@@ -1,7 +1,11 @@
 package com.android_app_project.entities;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.format.DateFormat;
+
+import androidx.annotation.NonNull;
 
 import com.android_app_project.Utils.Constants;
 
@@ -138,4 +142,5 @@ public class Account implements Serializable {
     public void setOtpRequestedTime(String otpRequestedTime) {
         this.otpRequestedTime = otpRequestedTime;
     }
+
 }

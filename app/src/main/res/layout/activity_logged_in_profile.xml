@@ -196,7 +196,28 @@
                     android:drawablePadding="@dimen/marign_10"
                     android:drawableTint="@color/black"
                     />
+                <View
+                    android:id="@+id/id_view_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="@dimen/margin_45"
+                    android:layout_marginTop="@dimen/marign_2"
+                    android:background="@color/linecolor"
+                    />
 
+                <Button
+                    android:id="@+id/LoggedInProfile_btn_managerApp"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/ic_storefront_24dp"
+                    android:text="trang nhà bán hàng"
+                    android:textColor="@color/black"
+                    android:textAlignment="viewStart"
+                    android:drawablePadding="@dimen/marign_10"
+                    android:drawableTint="@color/black"
+                    />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

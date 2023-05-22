@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_mobile_navigation"
+    app:startDestination="@id/admin_navigation_dashboard">
+    <fragment
+        android:id="@+id/admin_navigation_category"
+        android:name="com.android_app_project.ui.admin.category.AdminCategoryFragment"
+        android:label="admin_fragment_category"
+        tools:layout="@layout/admin_fragment_category" />
+    <fragment
+        android:id="@+id/admin_navigation_dashboard"
+        android:name="com.android_app_project.ui.admin.dashboard.AdminDashboardFragment"
+        android:label="admin_fragment_dashboard"
+        tools:layout="@layout/admin_fragment_dashboard" />
+    <fragment
+        android:id="@+id/admin_navigation_deliver"
+        android:name="com.android_app_project.ui.admin.order.AdminOrderFragment"
+        android:label="admin_fragment_order"
+        tools:layout="@layout/admin_fragment_order" />
+    <fragment
+        android:id="@+id/admin_navigation_product"
+        android:name="com.android_app_project.ui.admin.product.AdminProductFragment"
+        android:label="admin_fragment_product"
+        tools:layout="@layout/admin_fragment_product" />
+</navigation>

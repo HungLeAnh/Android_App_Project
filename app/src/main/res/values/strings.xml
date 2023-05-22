@@ -55,6 +55,7 @@
     <string name="account">Tài khoản</string>
     <string name="myorder">Đơn Hàng</string>
     <string name="search_hint">hint</string>
+    <string name="title_activity_order_detail">OrderDetailActivity</string>
 
 
 </resources>

@@ -1,47 +1,40 @@
 package com.android_app_project.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android_app_project.Helper.IClickItemListener;
+import com.android_app_project.inteface.IClickItemCartItemListener;
+import com.android_app_project.inteface.IClickItemListener;
 import com.android_app_project.R;
 import com.android_app_project.Utils.Constants;
 import com.android_app_project.Utils.SharePrefManager;
 import com.android_app_project.adapter.CheckOutBottomSheetListViewAdapter;
 import com.android_app_project.adapter.ItemCartItemAdapter;
-import com.android_app_project.adapter.ItemProductAdapter;
 import com.android_app_project.api.CartItemAPI;
 import com.android_app_project.api.OrderAPI;
 import com.android_app_project.api.RetrofitClient;
 import com.android_app_project.databinding.ActivityCartBinding;
 import com.android_app_project.entities.CartItem;
 import com.android_app_project.entities.Order;
-import com.android_app_project.entities.Product;
 
-import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.gson.Gson;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -79,10 +72,16 @@ public class CartActivity extends AppCompatActivity {
                         binding.cartactivityTvItemCount.setText(String.valueOf(cartItemList.size())+" MẶT HÀNG");
                         CalculateTotalPrice();
 
-                        itemCartItemAdapter = new ItemCartItemAdapter(cartItemList, new IClickItemListener() {
+                        itemCartItemAdapter = new ItemCartItemAdapter(cartItemList, new IClickItemCartItemListener() {
+
                             @Override
-                            public void onClickItem() {
+                            public void onClickAmountChange() {
                                 CalculateTotalPrice();
+                            }
+
+                            @Override
+                            public void onClickdeleteItem() {
+
                             }
                         }, context);
                         binding.cartactivityRvCartItem.setHasFixedSize(true);
@@ -187,6 +186,10 @@ public class CartActivity extends AppCompatActivity {
             BigDecimal itemPrice = item.getProduct().getPrice();
             totalPrice = totalPrice + itemCount * itemPrice.longValue();
         }
+        binding.cartactivityTvItemCount.setText(cartItemList.size()+" MẶT HÀNG");
         binding.cartactivityBottomTotalPrice.setText(totalPrice.toString()+ " VND");
+    }
+    private void DeleteCartItem(){
+
     }
 }

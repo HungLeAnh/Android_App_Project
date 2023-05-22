@@ -2,14 +2,17 @@ package com.android_app_project.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android_app_project.R;
 import com.android_app_project.Utils.Constants;
 import com.android_app_project.Utils.SharePrefManager;
+import com.android_app_project.activity.admin.AdminMainActivity;
 import com.android_app_project.api.CustomerAPI;
 import com.android_app_project.api.RetrofitClient;
 import com.android_app_project.databinding.ActivityLoggedInProfileBinding;
@@ -27,13 +30,14 @@ public class LoggedInProfileActivity extends AppCompatActivity {
     private ActivityLoggedInProfileBinding binding;
     CustomerAPI customerAPI;
     Customer customer;
+    Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityLoggedInProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        context = getApplicationContext();
         if(!SharePrefManager.getInstance(this).isLoggedIn()){
             Intent intent = new Intent(getApplicationContext(),ProfileActivity.class);
             startActivity(intent);
@@ -76,6 +80,21 @@ public class LoggedInProfileActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(),ProfileSettingActivity.class);
             intent.putExtra("customer",(Serializable) customer);
             startActivity(intent);
+        });
+        binding.LoggedInProfileBtnBuyOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,OrderActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.LoggedInProfileBtnManagerApp.setOnClickListener(v -> {
+            String role = SharePrefManager.getInstance(context).getRoll();
+            if(role!=null && role.equals("ROLE_ADMIN")){
+                Intent intent = new Intent(context, AdminMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         });
     }
 }

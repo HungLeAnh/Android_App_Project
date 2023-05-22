@@ -71,6 +71,7 @@ public class ItemProductAdapter extends RecyclerView.Adapter<ItemProductAdapter.
                         }
                         else{
                             Log.d("item product adapter",response.errorBody().string());
+                            holder.binding.itemProductIvProductImage.setImageResource(R.drawable.ic_image_not_supported_72);
                         }
                     }
                     catch (Exception e){

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/admin_navigation_dashboard"
+        android:icon="@drawable/ic_dashboard_24dp"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/admin_navigation_category"
+        android:icon="@drawable/ic_category_24dp"
+        android:title="Danh Mục" />
+    <item
+        android:id="@+id/admin_navigation_product"
+        android:icon="@drawable/ic_boxes_24dp"
+        android:iconTint="@color/black"
+        android:title="Hàng Hóa"
+        />
+    <item
+        android:id="@+id/admin_navigation_deliver"
+        android:icon="@drawable/truck_loading_24"
+        android:iconTint="@color/black"
+        android:title="Đơn Hàng" />
+
+</menu>

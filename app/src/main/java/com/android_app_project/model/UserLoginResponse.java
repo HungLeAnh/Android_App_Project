@@ -3,19 +3,27 @@ package com.android_app_project.model;
 import java.io.Serializable;
 
 public class UserLoginResponse implements Serializable {
-    private String JWTtoken;
+    private String role;
+    private String token;
 
-    public UserLoginResponse(String JWTtoken) {
-        this.JWTtoken = JWTtoken;
+    public UserLoginResponse(String role, String token) {
+        this.role = role;
+        this.token = token;
     }
 
-    public String getJWTtoken() {
-        return JWTtoken;
+    public String getRole() {
+        return role;
     }
 
-    public void setJWTtoken(String JWTtoken) {
-        this.JWTtoken = JWTtoken;
+    public void setRole(String role) {
+        this.role = role;
     }
 
+    public String getToken() {
+        return token;
+    }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
 }

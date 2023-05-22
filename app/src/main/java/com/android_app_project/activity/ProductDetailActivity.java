@@ -3,19 +3,17 @@ package com.android_app_project.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
-import com.android_app_project.Helper.IClickItemListener;
+import com.android_app_project.inteface.IClickItemListener;
 import com.android_app_project.R;
 import com.android_app_project.Utils.Constants;
 import com.android_app_project.Utils.SharePrefManager;
@@ -25,13 +23,11 @@ import com.android_app_project.api.CartItemAPI;
 import com.android_app_project.api.ItemStockAPI;
 import com.android_app_project.api.RetrofitClient;
 import com.android_app_project.databinding.ActivityProductDetailBinding;
-import com.android_app_project.databinding.ItemProductDetailSizeBinding;
 import com.android_app_project.entities.Color;
 import com.android_app_project.entities.ItemStock;
 import com.android_app_project.entities.Product;
 import com.android_app_project.entities.Size;
 
-import java.security.cert.Certificate;
 import java.util.ArrayList;
 import java.util.List;
 
